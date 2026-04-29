@@ -1,0 +1,12 @@
+from django.urls import path
+from . import views
+
+
+app_name = 'diaries'
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('create/', views.create, name='create'),
+    # 댓글 생성 요청 url
+    path('<int:diary_pk>/comments/', views.comment_create, name="comments_create")
+]
